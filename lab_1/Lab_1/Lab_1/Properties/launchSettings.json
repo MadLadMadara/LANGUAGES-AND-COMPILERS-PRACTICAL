@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Lab_1": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\sajmc\\OneDrive\\Documents\\Projects\\RGU\\LANGUAGES-AND-COMPILERS-PRACTICAL\\lab_1\\Lab_1\\Lab_1\\testfile.txt C:\\Users\\sajmc\\OneDrive\\Documents\\Projects\\RGU\\LANGUAGES-AND-COMPILERS-PRACTICAL\\lab_1\\Lab_1\\Lab_1\\"
+    }
+  }
+}

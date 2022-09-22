@@ -1,0 +1,50 @@
+~~~~ File summary ~~~~
+Total line count:11
+Total word count:20
+Total char count:170
+Total char count:11
+~~~~ Line info ~~~~
+~~ Line:1 ~~
+First word:begin;
+First leter:b
+Last leter:;
+~~ Line:2 ~~
+First word:put('10');
+First leter:p
+Last leter:;
+~~ Line:3 ~~
+First word:put('7');
+First leter:p
+Last leter:;
+~~ Line:4 ~~
+First word:put('6');
+First leter:p
+Last leter:;
+~~ Line:5 ~~
+First word:add;
+First leter:a
+Last leter:;
+~~ Line:6 ~~
+First word:put('5
+First leter:p
+Last leter:;
+~~ Line:7 ~~
+First word:put('4');
+First leter:p
+Last leter:;
+~~ Line:8 ~~
+First word:put('2');
+First leter:p
+Last leter:;
+~~ Line:9 ~~
+First word:subtract;
+First leter:s
+Last leter:;
+~~ Line:10 ~~
+First word:put('H');
+First leter:p
+Last leter:;
+~~ Line:11 ~~
+First word:end;
+First leter:e
+Last leter:;
