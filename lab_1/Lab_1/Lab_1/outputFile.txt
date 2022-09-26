@@ -1,0 +1,13 @@
+0:begin;
+1:#this is a really simple test program, for not a real language
+2:put('10'); put('9'); put('8        ');
+3:    put('7'); 
+4:put('6'); 
+5:add;
+6:    put('5   ');
+7:put('4');           put('3'); 
+8:        put('2'); put('1'); put('0'); 
+9:        subtract;
+10:put('H'); put('i'); put('!');
+11:
+12:end;

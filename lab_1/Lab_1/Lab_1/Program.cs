@@ -10,7 +10,8 @@ namespace Lab_1
             MyOutputReader myOutput = new MyOutputReader(args[1]);
             myOutput.ReadFile(args[0]);
             myOutput.ReadFile(args[0]);
-            myOutput.GenerateStatsFile(); 
+            myOutput.GenerateStatsFile();
+            myOutput.GenerateOutputFile(); 
         }
     }
 }
