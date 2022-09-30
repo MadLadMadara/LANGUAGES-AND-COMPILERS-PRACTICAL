@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "rHyanL6Dod1Vdkt+8IWh1g9jNB6pmTh7WvFarSbiew4ur6lLJmYEsb4UMUIIYBNn2ZLUqmV13vpQHy8hX+Mq8A==",
+  "dgSpecHash": "VlhhczzH0Xh/fptZwIB6Q60yGnbAYsuTQwh+dLfdhy5oB4Ryq992qVm1BfPYN1AQpV+Y35CRu+ygOjZ/kS1iaQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sajmc\\OneDrive\\Documents\\Projects\\RGU\\LANGUAGES-AND-COMPILERS-PRACTICAL\\lab_2\\lab_2\\lab_2\\lab_2.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\sajmc\\Documents\\Projects\\RGU\\LANGUAGES-AND-COMPILERS-PRACTICAL\\lab_2\\lab_2\\lab_2\\lab_2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sajmc\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.29\\microsoft.netcore.app.host.win-x64.3.1.29.nupkg.sha512",
+    "C:\\Users\\sajmc\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\sajmc\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\sajmc\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
   "logs": []
 }

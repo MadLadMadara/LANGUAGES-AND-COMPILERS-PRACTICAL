@@ -28,6 +28,10 @@ namespace lab_2
                         selectedFile = files[value - 1];
                         validKeyPreess = true;
                     }
+                    else
+                    {
+                        Console.WriteLine($"Invalid number {value}");
+                    }
 
                 }catch(Exception e)
                 {
