@@ -50,7 +50,7 @@ namespace lab_2
                 if (!string.IsNullOrWhiteSpace(word))
                 {
                     await Task.Delay(config.DelayInMilliseconds);
-                    if (word.EndsWith(".") && !word.Any(char.IsUpper))
+                    if (word.EndsWith(".") && !word.Any(char.IsUpper)) // could be improved?!?
                     {
                         await Task.Delay(config.DelayInMilliseconds * 3);
                     }

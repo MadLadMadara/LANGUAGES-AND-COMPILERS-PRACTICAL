@@ -12,3 +12,17 @@ C:\Users\sajmc\OneDrive\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL
 C:\Users\sajmc\OneDrive\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\obj\Debug\netcoreapp3.1\lab_2.dll
 C:\Users\sajmc\OneDrive\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\obj\Debug\netcoreapp3.1\lab_2.pdb
 C:\Users\sajmc\OneDrive\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\obj\Debug\netcoreapp3.1\lab_2.genruntimeconfig.cache
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\bin\Debug\netcoreapp3.1\lab_2.exe
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\bin\Debug\netcoreapp3.1\lab_2.deps.json
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\bin\Debug\netcoreapp3.1\lab_2.runtimeconfig.json
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\bin\Debug\netcoreapp3.1\lab_2.runtimeconfig.dev.json
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\bin\Debug\netcoreapp3.1\lab_2.dll
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\bin\Debug\netcoreapp3.1\lab_2.pdb
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\obj\Debug\netcoreapp3.1\lab_2.csproj.AssemblyReference.cache
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\obj\Debug\netcoreapp3.1\lab_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\obj\Debug\netcoreapp3.1\lab_2.AssemblyInfoInputs.cache
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\obj\Debug\netcoreapp3.1\lab_2.AssemblyInfo.cs
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\obj\Debug\netcoreapp3.1\lab_2.csproj.CoreCompileInputs.cache
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\obj\Debug\netcoreapp3.1\lab_2.dll
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\obj\Debug\netcoreapp3.1\lab_2.pdb
+C:\Users\sajmc\Documents\Projects\RGU\LANGUAGES-AND-COMPILERS-PRACTICAL\lab_2\lab_2\lab_2\obj\Debug\netcoreapp3.1\lab_2.genruntimeconfig.cache
