@@ -44,7 +44,7 @@ namespace Compiler
         public void Compile()
         {
             // Tokenize
-            Write("Tokenising...");
+            Write("Tokenising...\n");
             List<Token> tokens = Tokenizer.GetAllTokens();
             if (Reporter.HasErrors) return;
             WriteLine("Done");

@@ -1,5 +1,6 @@
 ﻿using Compiler.IO;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
 
@@ -47,6 +48,7 @@ namespace Compiler.Tokenization
             while (token.Type != TokenType.EndOfText)
             {
                 tokens.Add(token);
+                TokenSpelling.Clear();
                 token = GetNextToken();
             }
             tokens.Add(token);
@@ -64,7 +66,7 @@ namespace Compiler.Tokenization
             SkipSeparators();
 
             // Remember the starting position of the token
-            // Position tokenStartPosition = Reader.CurrentPosition;
+            Position tokenStartPosition = Reader.CurrentPosition;
 
             // Scan the token and work out its type
             TokenType tokenType = ScanToken();
@@ -87,9 +89,16 @@ namespace Compiler.Tokenization
         /// </summary>
         private void SkipSeparators()
         {
-            while (Reader.Current == '!' || IsWhiteSpace(Reader.Current))
+            if (Reader.Current == '!')
             {
-                throw new NotImplementedException();
+                Reader.SkipRestOfLine();
+            }
+            else
+            {
+                while (IsWhiteSpace(Reader.Current))
+                {
+                    Reader.MoveNext();
+                }
             }
         }
 
@@ -100,8 +109,90 @@ namespace Compiler.Tokenization
         /// <remarks>Sets tokenSpelling to be the characters in the token</remarks>
         private TokenType ScanToken()
         {
-            TokenSpelling.Clear();
-            if (Reader.Current == default(char))
+            if (Char.IsLetter(Reader.Current))
+            {
+                // consume as identifier
+                TakeIt();
+                while (Char.IsLetterOrDigit(Reader.Current))
+                {
+                    TakeIt();
+                }
+                if (TokenTypes.IsKeyword(TokenSpelling))
+                {
+                    return TokenTypes.GetTokenForKeyword(TokenSpelling);
+                }
+                else
+                {
+                    return TokenType.Identifier;
+                }
+            }
+            else if (Char.IsDigit(Reader.Current))
+            {
+                // Consume as int Literala
+                TakeIt();
+                while (Char.IsDigit(Reader.Current))
+                {
+                    TakeIt();
+                }
+                return TokenType.IntLiteral;
+
+            } else if (Reader.Current == '\'') 
+            {
+                // consube as char chars literal
+                // TODO: might need to remove the "'" from the consumption
+                TakeIt();
+                TakeIt();
+                if(Reader.Current == '\'')
+                {
+                    TakeIt();
+                    return TokenType.CharLiteral;
+                }
+                TakeIt();
+                return TokenType.Error;
+
+            } else if (IsOperator(Reader.Current))
+            {
+                // Consume as operator
+                TakeIt();
+                return TokenType.Operator;
+
+            } else if (IsPunctuation(Reader.Current))
+            {
+                // Consume as punctuation
+                TokenType T = TokenType.Error;
+                switch (Reader.Current)
+                {
+                    case '(':
+                        TakeIt();
+                        T = TokenType.LeftBracket;
+                        break;
+                    case ')':
+                        TakeIt();
+                        T = TokenType.RightBracket;
+                        break;
+                    case '~':
+                        TakeIt();
+                        T = TokenType.Const;
+                        break;
+                    case ':':
+                        TakeIt();
+                        if (Reader.Current == '=')
+                        {
+                            TakeIt();
+                            T = TokenType.Becomes;
+                        }
+                        break;
+                    case ';':
+                        TakeIt();
+                        T = TokenType.Semicolon;
+                        break;
+                    default:
+                        TakeIt();
+                        break;
+                }
+                return T;
+            }
+            else if (Reader.Current == default(char))
             {
                 // Read the end of the file
                 TakeIt();
@@ -151,6 +242,25 @@ namespace Compiler.Tokenization
                 case '>':
                 case '=':
                 case '\\':
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        /// <summary>
+        ///  checks whether a given character is punctuation
+        /// </summary>
+        /// <param name="c">The character to check</param>
+        /// <returns>True if char is of token type punctuation</returns>
+        private static bool IsPunctuation(char c)
+        {
+            switch (c)
+            {
+                case '(':
+                case ')':
+                case '~':
+                case ':':
+                case ';':
                     return true;
                 default:
                     return false;

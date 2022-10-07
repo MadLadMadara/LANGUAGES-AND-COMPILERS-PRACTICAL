@@ -12,7 +12,7 @@ namespace Compiler.Tokenization
     public enum TokenType
     {
         // non-terminals
-        IntLiteral, Identifier, Operator,
+        IntLiteral, Identifier, Operator, CharLiteral,
 
         // reserved words - terminals
         Begin, Const, Do, Else, End, If, In, Let, Then, Var, While,
