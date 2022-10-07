@@ -57,7 +57,7 @@ namespace Compiler
         /// </summary>
         private void WriteFinalMessage()
         {
-            // Write output to tell the user whether it worked or not here
+            WriteLine($"Finished \nErrors reported:{Reporter.NumberOfErrors}");
         }
 
         /// <summary>

@@ -78,9 +78,8 @@ namespace Compiler.Tokenization
             // Report an error if necessary
             if (tokenType == TokenType.Error)
             {
-                // Report the error here
+                Reporter.NewError(token);
             }
-
             return token;
         }
 
