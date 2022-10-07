@@ -66,7 +66,7 @@ namespace Compiler.Tokenization
             SkipSeparators();
 
             // Remember the starting position of the token
-            // Position tokenStartPosition = Reader.CurrentPosition;
+            Position tokenStartPosition = Reader.CurrentPosition;
 
             // Scan the token and work out its type
             TokenType tokenType = ScanToken();
