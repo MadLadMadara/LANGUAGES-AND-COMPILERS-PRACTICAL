@@ -72,7 +72,7 @@ namespace Compiler.Tokenization
             TokenType tokenType = ScanToken();
 
             // Create the token
-            Token token = new Token(tokenType, TokenSpelling.ToString());
+            Token token = new Token(tokenType, TokenSpelling.ToString(), tokenStartPosition);
             Debugger.Write($"Scanned {token}");
 
             // Report an error if necessary

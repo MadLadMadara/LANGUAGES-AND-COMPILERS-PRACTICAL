@@ -1,4 +1,6 @@
-﻿namespace Compiler
+﻿using System;
+
+namespace Compiler
 {
     /// <summary>
     /// A position in a file
@@ -19,10 +21,15 @@
         /// </summary>
         /// <param name="lineNumber"> line which the token is on in source code</param>
         /// <param name="linePosition">position in line that the token is found in source code</param>
-        Position(int lineNumber, int linePosition)
+        public Position(int lineNumber, int linePosition)
         {
             LineNumber = lineNumber;
             LinePosition = linePosition;
+        }
+        /// <inheritDoc />
+        public override string ToString()
+        {
+            return $"LineNumber={LineNumber}, LinePosition=\"{LinePosition}\", ";
         }
     }
 }

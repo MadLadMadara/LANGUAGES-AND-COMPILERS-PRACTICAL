@@ -43,7 +43,7 @@ namespace Compiler.IO
         /// The position of the current character in the file
         /// </summary>
         /// <remarks>Lines and columns both start from 1, not 0</remarks>
-        public Position CurrentPosition { get { throw new NotImplementedException(); } }
+        public Position CurrentPosition { get { return new Position(currentLineNumber, currentPositionInLine); } }
 
         /// <summary>
         /// Move to the next character in the file
