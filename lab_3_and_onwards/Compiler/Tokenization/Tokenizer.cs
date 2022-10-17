@@ -180,6 +180,10 @@ namespace Compiler.Tokenization
                             TakeIt();
                             T = TokenType.Becomes;
                         }
+                        else
+                        {
+                            T = TokenType.Colon;
+                        }
                         break;
                     case ';':
                         TakeIt();
