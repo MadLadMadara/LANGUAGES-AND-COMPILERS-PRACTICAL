@@ -29,7 +29,7 @@ namespace Compiler
         /// <inheritDoc />
         public override string ToString()
         {
-            return $"LineNumber={LineNumber}, LinePosition=\"{LinePosition}\", ";
+            return $"LineNumber=\"{LineNumber}\", LinePosition=\"{LinePosition}\"";
         }
     }
 }

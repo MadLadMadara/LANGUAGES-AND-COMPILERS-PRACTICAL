@@ -48,7 +48,6 @@ namespace Compiler.Tokenization
             while (token.Type != TokenType.EndOfText)
             {
                 tokens.Add(token);
-                TokenSpelling.Clear();
                 token = GetNextToken();
             }
             tokens.Add(token);
@@ -65,21 +64,16 @@ namespace Compiler.Tokenization
             // Skip forward over any white spcae and comments
             SkipSeparators();
 
-            // Remember the starting position of the token
-            Position tokenStartPosition = Reader.CurrentPosition;
+            // clear previouse token spelling
+            TokenSpelling.Clear();
 
             // Scan the token and work out its type
-            TokenType tokenType = ScanToken();
+            Token token = ScanToken(); // return token rather than token type
 
-            // Create the token
-            Token token = new Token(tokenType, TokenSpelling.ToString(), tokenStartPosition);
+            // debugger display token
             Debugger.Write($"Scanned {token}");
 
-            // Report an error if necessary
-            if (tokenType == TokenType.Error)
-            {
-                Reporter.NewError(token);
-            }
+            // return token
             return token;
         }
 
@@ -106,24 +100,24 @@ namespace Compiler.Tokenization
         /// </summary>
         /// <returns>The type of the next token</returns>
         /// <remarks>Sets tokenSpelling to be the characters in the token</remarks>
-        private TokenType ScanToken()
+        private Token ScanToken()
         {
+            Position tokenStartPosition = Reader.CurrentPosition;
             if (Char.IsLetter(Reader.Current))
             {
                 // consume as identifier
                 TakeIt();
+                TokenType T = TokenType.Identifier;
                 while (Char.IsLetterOrDigit(Reader.Current))
                 {
                     TakeIt();
                 }
                 if (TokenTypes.IsKeyword(TokenSpelling))
                 {
-                    return TokenTypes.GetTokenForKeyword(TokenSpelling);
+                    T = TokenTypes.GetTokenForKeyword(TokenSpelling);
                 }
-                else
-                {
-                    return TokenType.Identifier;
-                }
+                return new Token(T, TokenSpelling.ToString(), tokenStartPosition);
+
             }
             else if (Char.IsDigit(Reader.Current))
             {
@@ -133,27 +127,31 @@ namespace Compiler.Tokenization
                 {
                     TakeIt();
                 }
-                return TokenType.IntLiteral;
+                return new Token(TokenType.IntLiteral, TokenSpelling.ToString(), tokenStartPosition);
 
             } else if (Reader.Current == '\'') 
             {
                 // consube as char chars literal
-                // TODO: might need to remove the "'" from the consumption
+                TokenType T = TokenType.CharLiteral;
                 TakeIt();
                 TakeIt();
                 if(Reader.Current == '\'')
                 {
                     TakeIt();
-                    return TokenType.CharLiteral;
                 }
-                TakeIt();
-                return TokenType.Error;
+                else
+                {
+                    T = TokenType.Error;
+                    // report error
+                    Reporter.NewError(new Token(T, TokenSpelling.ToString(), tokenStartPosition), $"Character literals must be sourounded by \"\'\", \"{Reader.Current}\" was found instead.");
+                }
+                return new Token(T, TokenSpelling.ToString(), tokenStartPosition);
 
             } else if (IsOperator(Reader.Current))
             {
                 // Consume as operator
                 TakeIt();
-                return TokenType.Operator;
+                return new Token(TokenType.Operator, TokenSpelling.ToString(), tokenStartPosition);
 
             } else if (IsPunctuation(Reader.Current))
             {
@@ -190,22 +188,24 @@ namespace Compiler.Tokenization
                         T = TokenType.Semicolon;
                         break;
                     default:
-                        TakeIt();
+                        // This code will never be reached as the IsPunctuation check that it is a valid Punctuation
                         break;
                 }
-                return T;
+                return new Token(T, TokenSpelling.ToString(), tokenStartPosition);
             }
             else if (Reader.Current == default(char))
             {
                 // Read the end of the file
                 TakeIt();
-                return TokenType.EndOfText;
+                return new Token(TokenType.EndOfText, TokenSpelling.ToString(), tokenStartPosition);
             }
             else
             {
                 // Encountered a character we weren't expecting
                 TakeIt();
-                return TokenType.Error;
+                Token token = new Token(TokenType.Error, TokenSpelling.ToString(), tokenStartPosition);
+                Reporter.NewError(token, $"Unexpected character encountered \"{Reader.Current}\"");
+                return token;
             }
         }
 

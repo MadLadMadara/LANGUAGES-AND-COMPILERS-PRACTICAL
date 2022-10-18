@@ -59,6 +59,11 @@ namespace Compiler.SyntacticAnalysis
                 Debugger.Write($"Accepted {CurrentToken}");
                 MoveNext();
             }
+            else
+            {
+                Debugger.Write($"Failed to accepted: {CurrentToken}, Expected: {expectedType}");
+                Reporter.NewError(CurrentToken, $"Expected {expectedType}, found: {CurrentToken.Type}");
+            }
         }
 
         /// <summary>
@@ -106,7 +111,6 @@ namespace Compiler.SyntacticAnalysis
             Debugger.Write("Parsing Single Command");
             switch (CurrentToken.Type)
             {
-                // There are missing cases here - you'll need to fill them all in
                 case Identifier:
                     ParseAssignmentOrCallCommand();
                     break;

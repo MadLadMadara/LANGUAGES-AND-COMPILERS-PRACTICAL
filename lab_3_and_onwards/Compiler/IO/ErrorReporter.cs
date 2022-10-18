@@ -12,7 +12,7 @@ namespace Compiler.IO
         /// <summary>
         /// List of error tokens that have been reported
         /// </summary>
-        private List<Token> ErrorTokens;
+        private List<Error> ErrorTokens;
         /// <summary>
         /// The number of errors that occourd
         /// </summary>
@@ -26,20 +26,28 @@ namespace Compiler.IO
         /// </summary>
         public ErrorReporter()
         {
-            ErrorTokens = new List<Token>();
+            ErrorTokens = new List<Error>();
             HasErrors = false;
         }
         /// <summary>
-        /// Add new error token to ErrorToken list
+        /// Reporsts a new error to be added to the error list
         /// </summary>
-        /// <param name="token">Error token </param>
-        public void NewError(Token token)
+        /// <param name="token">Token that the error occured on</param>
+        /// <param name="message">Description of the error</param>
+        public void NewError(Token token, string message)
         {
-            if (token.Type == TokenType.Error)
-            {  
-                HasErrors = true;
-                ErrorTokens.Add(token);
+            HasErrors = true;
+            ErrorTokens.Add(new Error(token, message));
+        }
+
+        public override string ToString()
+        {
+            string errorLog = $"ERROR LOG...\n\nHas errors occured:{HasErrors}\nNumber of errors:{NumberOfErrors}\n\n"; 
+            foreach (Error e in ErrorTokens)
+            {
+                errorLog += $"{e.ToString()}\n\n";
             }
+            return errorLog;
         }
     }
 }
