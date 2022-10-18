@@ -171,7 +171,7 @@ namespace Compiler.Tokenization
                         break;
                     case '~':
                         TakeIt();
-                        T = TokenType.Const;
+                        T = TokenType.Is;
                         break;
                     case ':':
                         TakeIt();

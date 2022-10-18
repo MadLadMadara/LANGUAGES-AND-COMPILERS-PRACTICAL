@@ -3,6 +3,7 @@ using Compiler.Tokenization;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Compiler.SyntacticAnalysis; 
 using static System.Console;
 
 namespace Compiler
@@ -28,6 +29,11 @@ namespace Compiler
         public Tokenizer Tokenizer { get; }
 
         /// <summary>
+        /// The parser
+        /// </summary>
+        public Parser Parser { get; }
+
+        /// <summary>
         /// Creates a new compiler
         /// </summary>
         /// <param name="inputFile">The file containing the source code</param>
@@ -36,6 +42,7 @@ namespace Compiler
             Reporter = new ErrorReporter();
             Reader = new FileReader(inputFile);
             Tokenizer = new Tokenizer(Reader, Reporter);
+            Parser = new Parser(Reporter);
         }
 
         /// <summary>
@@ -44,12 +51,12 @@ namespace Compiler
         public void Compile()
         {
             // Tokenize
-            Write("Tokenising...\n");
+            WriteLine("Tokenising...");
             List<Token> tokens = Tokenizer.GetAllTokens();
+            WriteLine("Parsing...");
+            Parser.Parse(tokens);
             if (Reporter.HasErrors) return;
             WriteLine("Done");
-
-            WriteLine(string.Join("\n", tokens));
         }
 
         /// <summary>
